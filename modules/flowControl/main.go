@@ -52,4 +52,12 @@ func main() {
 
 	}
 
+	var arr = [...][2]int{{1, 2}, {3, 4}}
+
+	for i, nest := range arr {
+		for j, val := range nest {
+			fmt.Printf("[%d,%d] : %d\n", i, j, val)
+		}
+	}
+
 }
