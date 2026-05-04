@@ -30,6 +30,6 @@ func main() {
 	fmt.Print("\n")
 
 	// gcd and lcm of two numbers using euclidean
-	GCDandLCM.Euclidean()
-
+	//GCDandLCM.Euclidean()
+	GCDandLCM.ExtendedEuclidean()
 }

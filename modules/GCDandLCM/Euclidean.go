@@ -2,8 +2,8 @@ package GCDandLCM
 
 import "fmt"
 
-// helper abs function as go doesnot have one for int
-func abs(x int) int {
+// helper abs function as go doesnot have one for int exportable so that ExtendedEuclidean can also use it.
+func Abs(x int) int {
 	if x < 0 {
 		return -x
 	}
@@ -23,7 +23,7 @@ func lcm(x int, y int) int {
 	if x == 0 && y == 0 {
 		return 0
 	}
-	return abs(x*y) / gcd(x, y)
+	return Abs(x*y) / gcd(x, y)
 
 }
 
