@@ -1,8 +1,8 @@
-package main 
+package main
 
-func main(){
+func main() {
 	// Function for array demo
-	ArrayDemo()
+	//ArrayDemo()
 
 	// Function for slice demo
 	SliceDemo()
