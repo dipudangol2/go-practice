@@ -5,5 +5,8 @@ func main() {
 	//ArrayDemo()
 
 	// Function for slice demo
-	SliceDemo()
+	// SliceDemo()
+
+	//Function for Map Demo
+	MapDemo()
 }

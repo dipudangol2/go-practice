@@ -110,10 +110,20 @@ func SliceDemo() {
 	fmt.Printf("Intial Array: %v\n", sl)
 
 	// Add elements to the slice but print the slice, length and capacity of the slice on each step when adding ten elements to the slice
-	// Whenever appending to the slice, if the capacity is full for the slice, the capacity for the slice gets doubled. 
+	// Whenever appending to the slice, if the capacity is full for the slice, the capacity for the slice gets doubled.
 	for idx := 2; idx < 12; idx++ {
 		sl = append(sl, idx+1)
 		fmt.Printf("Slice: %v, length:%v, capacity:%v\n", sl, len(sl), cap(sl))
 	}
+	// Slices are mutable when passed to a function unlike arrays which create a copy of the array passed in the function
+	// Create a test slice for checking mutation
+	slce := []int{1, 3, 4, 5, 6}
+	fmt.Printf("Before passing the slice to the function: %v\n", slce)
+	testSliceMutation(slce)
+	fmt.Printf("After passing the slice to the function: %v\n", slce)
 
+}
+
+func testSliceMutation(sl []int) {
+	sl[0] = 2
 }
