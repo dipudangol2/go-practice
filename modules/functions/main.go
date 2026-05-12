@@ -24,6 +24,31 @@ func returnDouble(number int) int {
 	return number * 2
 }
 
+// Return functions from a function
+func getFunc(str string) func(string) string {
+	// This function returns a function which takes another string as input and returns the concatenation of the parameter of the parent function and the parameter of itself.
+	return func(str2 string) string {
+		return str + str2
+	}
+}
+
+// Variadic functions: These can take any number of parameters of the specified type in the function definition
+func sum(nums ...int) int { // The parameters get taken in as a slice of numbers
+	total := 0
+	// Loop through the parameter values
+	for _, num := range nums {
+		total += num
+	}
+	return total
+}
+
+// Named return values
+func greet(str string) (greeting string, name string) {
+	greeting = "Hello, " // Already declared at the top
+	name = str + "!"
+	return // Doesnot need variable names to be included in the return statement.
+}
+
 func main() {
 	// usually all return types must be assigned to a variable. If a variable is not to be used use _ symbol to skip that value
 	age, message := multiReturn(2002)
@@ -40,4 +65,22 @@ func main() {
 		return x * 2
 	}
 	fmt.Println(funcCall(fun)) // This should print 30
+
+	f1 := getFunc("Hello, ") // Gets a function returned which takes another parameter
+	value := f1("World!!")   // Invokes the child function which concatenates the parameter of the previous function and the current parameter
+	fmt.Println(value)
+
+	// Call the sum functions with multiple inputs
+	sum1 := sum(1, 2, 3)
+	sum2 := sum(2, 4, 6, 8)
+	sum3 := sum(1, 3, 5, 7, 9)
+	fmt.Println(sum1, sum2, sum3)
+	// You can also spread a slice similar to javascript spread operator
+	sum4 := sum([]int{1, 2, 3, 4, 5}...) // adding ... at the end passes the slice as individual elements inside the function. Only works in a variadic parameter declaration
+	fmt.Println(sum4)
+
+	// Named return values
+	greeting, name := greet("Dipu")
+
+	fmt.Print(greeting, name, "\n")
 }
