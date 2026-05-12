@@ -2,11 +2,15 @@ package main
 
 func main() {
 	// Function for array demo
-	//ArrayDemo()
+	// ArrayDemo()
 
 	// Function for slice demo
 	// SliceDemo()
 
-	//Function for Map Demo
-	MapDemo()
+	// Function for Map Demo
+	// MapDemo()
+
+	// Function for struct demo
+	StructDemo()
+	
 }
