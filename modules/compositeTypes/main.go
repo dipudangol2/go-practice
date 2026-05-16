@@ -11,6 +11,8 @@ func main() {
 	// MapDemo()
 
 	// Function for struct demo
-	StructDemo()
-	
+	//StructDemo()
+
+	// Function for interface demo
+	InterfaceDemo()
 }

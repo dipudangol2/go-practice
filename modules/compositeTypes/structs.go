@@ -66,8 +66,10 @@ func StructDemo() {
 	// Slice of Job struct
 	p1.job = make([]Job, 3)
 	fmt.Println(p1.jobs, p1.job)
+	// Values to map to the slice
 	jobNames := []string{"Backend Developer", "Software Engineer (DevOps)", "Project Manager"}
 	roles := []string{"Junior", "Mid", "Senior"}
+
 	// Populating like a normal slice
 	for idx := 0; idx < len(p1.job); idx++ {
 		p1.job[idx] = Job{name: jobNames[idx], role: roles[idx]}
