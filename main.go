@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-practice/modules/GCDandLCM"
+	"go-practice/problems/GCDandLCM"
 )
 
 func main() {
