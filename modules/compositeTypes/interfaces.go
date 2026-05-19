@@ -28,6 +28,7 @@ func (t *Triangle) setSides(a float32, b float32, c float32) {
 	t.b = b
 	t.c = c
 }
+
 func (t Triangle) getPerimeter() float32 {
 	return t.a + t.b + t.c
 }
@@ -40,6 +41,7 @@ func (t Triangle) getArea() float32 {
 func (s Square) getPerimeter() float32 {
 	return 4 * s.length
 }
+
 func (s Square) getArea() float32 {
 	return float32(math.Pow(float64(s.length), 2))
 }
@@ -55,7 +57,8 @@ func InterfaceDemo() {
 	// As the dimensions were not declared in the interface, they cannot be used with the shape object
 	fmt.Printf("Perimeter: %v, Area: %v\n", ti.getPerimeter(), ti.getArea())
 	// Create array for the interface with multiple structs, works as long as the passed structs implement the interface properly
-	var shapes []Shape = []Shape{Triangle{5, 6, 3}, Square{5}}
+	// Can be used with short variable declaration, the type is inferred from the right side of the assignment
+	shapes := []Shape{Triangle{5, 6, 3}, Square{5}}
 
 	fmt.Println("Perimeter and area of triangle struct followed by square struct which both follow the shape interface so can be put in an array")
 	for _, shape := range shapes {
