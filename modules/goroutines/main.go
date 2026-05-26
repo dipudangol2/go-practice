@@ -26,5 +26,6 @@ func main() {
 	// Having a second loop also does not help without waiting for the multithreading to work because before the background threads get fired off the main function exits already
 	// In applications the programmer does not have any idea of how long should the program wait so waitgroups are implemented
 	// Function for waitgroup demo
-	waitGrp()
+	// waitGrp()
+	channelDemo()
 }
