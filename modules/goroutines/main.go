@@ -27,5 +27,6 @@ func main() {
 	// In applications the programmer does not have any idea of how long should the program wait so waitgroups are implemented
 	// Function for waitgroup demo
 	// waitGrp()
-	UnbufferedChannelDemo()
+	// UnbufferedChannelDemo()
+	BufferedChannelDemo()
 }

@@ -70,6 +70,37 @@ func UnbufferedChannelDemo() {
 			syncDemo(boolChan)
 		},
 	)
-	boolWg.Wait()
 	fmt.Println(<-boolChan)
+	boolWg.Wait()
+}
+
+func BufferedChannelDemo() {
+	chan1 := make(chan int, 1)
+	chan2 := make(chan string, 1)
+
+	var wg sync.WaitGroup
+	wg.Go(
+		func() {
+			chan1 <- 1
+			// Will cause a deadlock if the channel is not emptied first before sending another data into the channel again.
+			time.Sleep(time.Millisecond * 400)
+			chan1 <- 5
+		},
+	)
+	go func() {
+		chan2 <- "hello"
+		time.Sleep(time.Millisecond * 500)
+		chan2 <- "world"
+	}()
+
+	for range 4 {
+		select {
+		case chan1Val := <-chan1:
+			fmt.Println("Chan1 value:", chan1Val)
+
+		case chan2Val := <-chan2:
+			fmt.Println("Chan2 value:", chan2Val)
+		}
+	}
+	wg.Wait()
 }
