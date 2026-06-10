@@ -1,0 +1,37 @@
+package main
+
+import "fmt"
+
+/*
+* Mutex
+* */
+
+// Example of mutex using a struct post
+type post struct {
+	views int
+}
+
+// create an constructor function for the post struct
+func createPost() post {
+	p := post{views: 1}
+	return p
+}
+
+// function which increments the post view count by 1
+func (p *post) viewPost() {
+	p.views += 1
+}
+
+// function which returns Post count
+func (p *post) postCount int{
+	return p.views
+}
+
+func main() {
+	fmt.Println("Mutexes in Go:")
+
+	// Create a new post
+	post1 := createPost()
+
+	post1.viewPost()
+}
